@@ -64,7 +64,7 @@
   }
   @media(max-width:760px){.nav-links{display:none;}}
 
-  .hero{padding:100px 0 90px;}
+  .hero{padding:60px 0 70px;}
   .hero-grid{display:grid;grid-template-columns:1.3fr 0.9fr;gap:48px;align-items:center;}
   @media(max-width:820px){.hero-grid{grid-template-columns:1fr;}}
   .eyebrow{
@@ -96,10 +96,23 @@
 
   .stack-line{
     margin-top:48px;padding-top:26px;border-top:1px solid var(--line);
-    display:flex;gap:28px;flex-wrap:wrap;color:var(--text-dim);
-    font-family:'JetBrains Mono',monospace;font-size:12.5px;
+    overflow:hidden;position:relative;
+    -webkit-mask-image:linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image:linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   }
-  .stack-line b{color:var(--text);font-weight:500;}
+  .marquee-track{
+    display:flex;gap:40px;width:max-content;
+    animation:marquee 16s linear infinite;
+  }
+  .marquee-track span{
+    color:var(--text-dim);font-family:'JetBrains Mono',monospace;font-size:12.5px;
+    white-space:nowrap;
+  }
+  .marquee-track b{color:var(--text);font-weight:500;}
+  @keyframes marquee{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
 
   .ficha{
     margin-top:32px;background:var(--navy-card);border:1px solid var(--line);
@@ -122,11 +135,36 @@
     background:radial-gradient(circle,rgba(77,232,176,0.22),transparent 70%);
     filter:blur(30px);top:10%;z-index:0;
   }
+  .photo-frame .ring{
+    position:absolute;top:2%;width:340px;height:340px;border-radius:50%;
+    border:1.5px dashed var(--mint-dim);z-index:1;
+    animation:spin 18s linear infinite;
+  }
+  @keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+  }
   .photo-frame img{
-    position:relative;z-index:1;
+    position:relative;z-index:2;
     width:100%;max-width:320px;
     filter:drop-shadow(0 20px 40px rgba(0,0,0,0.5));
   }
+  .float-chip{
+    position:absolute;z-index:3;
+    background:var(--navy-card);border:1px solid var(--line);
+    padding:9px 16px;border-radius:30px;font-size:13px;font-weight:500;
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+    animation:float 5s ease-in-out infinite;
+    white-space:nowrap;
+  }
+  .chip-1{top:6%;left:-6%;animation-delay:0s;}
+  .chip-2{top:46%;right:-10%;animation-delay:1.2s;}
+  .chip-3{bottom:4%;left:-2%;animation-delay:2.4s;}
+  @keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+  }
+  @media(max-width:820px){.float-chip{display:none;}}
 
   .section{padding:90px 0;border-top:1px solid var(--line);}
   .section-label{
@@ -287,9 +325,14 @@
         <a href="#contacto" class="btn-ghost">Contactarme</a>
       </div>
       <div class="stack-line">
-        <span><b>WordPress</b> · Elementor</span>
-        <span><b>WooCommerce</b> · Mercado Pago</span>
-        <span><b>HTML</b> · CSS · JavaScript</span>
+        <div class="marquee-track">
+          <span><b>WordPress</b> · Elementor</span>
+          <span><b>WooCommerce</b> · Mercado Pago</span>
+          <span><b>HTML</b> · CSS · JavaScript</span>
+          <span><b>WordPress</b> · Elementor</span>
+          <span><b>WooCommerce</b> · Mercado Pago</span>
+          <span><b>HTML</b> · CSS · JavaScript</span>
+        </div>
       </div>
       <div class="ficha">
         <div class="ficha-row"><span>nombre</span><span>Agustín Gil</span></div>
@@ -299,7 +342,11 @@
       </div>
     </div>
     <div class="photo-frame">
+      <div class="ring"></div>
       <img src="agustin.png" alt="Agustín Gil">
+      <div class="float-chip chip-1">⚡ Rápido</div>
+      <div class="float-chip chip-2">🎨 A medida</div>
+      <div class="float-chip chip-3">💬 WhatsApp directo</div>
     </div>
   </div>
 </section>
