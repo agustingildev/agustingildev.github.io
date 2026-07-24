@@ -18,12 +18,15 @@ elements.forEach(el => {
 
 // Efecto de movimiento leve del mouse sobre la foto
 const photo = document.querySelector(".image-wrapper");
-document.addEventListener("mousemove", (e) => {
-  if (!photo) return;
-  const x = (window.innerWidth / 2 - e.clientX) / 80;
-  const y = (window.innerHeight / 2 - e.clientY) / 80;
-  photo.style.transform = `translate(${x}px, ${y}px)`;
-});
+
+if (window.innerWidth > 768 && photo) {
+  document.addEventListener("mousemove", (e) => {
+    const x = (window.innerWidth / 2 - e.clientX) / 80;
+    const y = (window.innerHeight / 2 - e.clientY) / 80;
+
+    photo.style.transform = `translate(${x}px, ${y}px)`;
+  });
+}
 
 // Menú hamburguesa (mobile)
 const menuToggle = document.getElementById('menuToggle');
