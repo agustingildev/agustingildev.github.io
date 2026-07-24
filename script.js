@@ -22,7 +22,7 @@ document.addEventListener("mousemove", (e) => {
   if (!photo) return;
   const x = (window.innerWidth / 2 - e.clientX) / 80;
   const y = (window.innerHeight / 2 - e.clientY) / 80;
-  photo.style.transform = `rotate(3deg) translate(${x}px, ${y}px)`;
+  photo.style.transform = `translate(${x}px, ${y}px)`;
 });
 
 // Menú hamburguesa (mobile)
