@@ -220,7 +220,7 @@ header{
 }
 .form-group textarea{resize:vertical;}
 .form-submit{width:100%;border:none;cursor:pointer;font-size:15px;}
-.or-divider{margin:20px 0 !important;font-size:13.5px;}
+.or-divider{margin:20px 0 !important;font-size:13.5px;text-align:center;}
 .contact a{margin:0 6px;}
 
 footer{
