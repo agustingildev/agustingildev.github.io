@@ -398,7 +398,7 @@ footer{
   }
 
   .hero-image{
-    order:-1;
+    order:0;
   }
 
   .image-wrapper{
@@ -448,16 +448,32 @@ footer{
   }
 
   .image-wrapper{
-    width:220px;
-    max-width:80vw;
+    width:250px;
+    max-width:82vw;
   }
 
   .tag{
-    position:static;
-    display:inline-block;
-    margin:8px 4px 0;
-    animation:none;
-  }
+    position:absolute;
+    z-index:5;
+    font-size:11px;
+    padding:7px 12px;
+    animation:float 5s ease-in-out infinite;
+}
+
+.tag-one{
+    top:8%;
+    left:-6px;
+}
+
+.tag-two{
+    top:42%;
+    right:-6px;
+}
+
+.tag-three{
+    bottom:8%;
+    left:-6px;
+}
 
   .hero-image{
     display:flex;
